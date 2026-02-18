@@ -94,14 +94,23 @@ def web_search(state: AgentState) -> dict:
 
     current_year = datetime.now().year
 
+    # distinct logic for program/fee queries vs general queries
+    programs_keywords = ["fee", "tuition", "program", "course", "degree", "bs", "ms", "mphil", "phd", "admission", "details", "structure"]
+    is_program_query = any(k in query.lower() for k in programs_keywords)
+
     try:
-        # Tavily search restricted to mul.edu.pk — prioritize recent results
+        if is_program_query:
+            # Target program pages specifically — NO year bias (static pages)
+            search_query = f"site:mul.edu.pk/en/program/ {query}"
+        else:
+            # General queries — include current year for recency bias
+            search_query = f"Minhaj University Lahore {query} {current_year}"
+
         results = get_tavily().search(
-            query=f"Minhaj University Lahore {query} {current_year}",
+            query=search_query,
             search_depth="advanced",
             include_domains=["mul.edu.pk"],
             max_results=7,
-            days=365,  # Only return results from the last 12 months
         )
 
         # Format search results — include publication date if available
