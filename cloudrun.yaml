@@ -17,7 +17,7 @@ spec:
       containerConcurrency: 80
       timeoutSeconds: 120
       containers:
-        - image: gcr.io/YOUR_PROJECT_ID/mul-chatbot
+        - image: gcr.io/mul-agent-with-langgraph/mul-chatbot
           ports:
             - containerPort: 8080
           resources:

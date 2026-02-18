@@ -12,7 +12,7 @@
 set -e  # Exit on any error
 
 # ── Configuration ─────────────────────────────────────────────────
-PROJECT_ID="mul-chatbot"              # Change to your GCP project ID
+PROJECT_ID="mul-agent-with-langgraph"         # ✅ Your GCP project ID
 SERVICE_NAME="mul-chatbot"
 REGION="asia-south1"                  # Mumbai — closest to Pakistan
 IMAGE="gcr.io/$PROJECT_ID/$SERVICE_NAME"
