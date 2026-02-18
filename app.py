@@ -64,9 +64,8 @@ app = FastAPI(
     title="MUL Chatbot API",
     description="Agentic AI Chatbot for Minhaj University Lahore",
     version="1.0.0",
-    # Disable docs in production (set via env var)
-    docs_url="/docs" if os.getenv("ENV", "development") != "production" else None,
-    redoc_url=None,
+    docs_url="/docs",
+    redoc_url="/redoc",
 )
 
 # Rate limit error handler
