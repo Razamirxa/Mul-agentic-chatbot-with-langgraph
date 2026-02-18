@@ -1,0 +1,38 @@
+# Git
+.git/
+.gitignore
+
+# Secrets — NEVER include in Docker image
+.env
+.env.local
+*.key
+*.pem
+
+# Python artifacts
+__pycache__/
+*.py[oc]
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Dev tools
+.vscode/
+.idea/
+*.swp
+
+# Docs / misc
+README.md
+*.md
+.DS_Store
+Thumbs.db
+logs/
+*.log
+
+# uv cache
+.uv/
